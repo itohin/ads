@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Region;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Region::creating(function ($region) {
+            $prefix = $region->parent ? $region->parent->name . ' ' : '';
+            $region->slug = Str::slug($prefix . $region->name);
+        });
     }
 }
