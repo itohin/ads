@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Region;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
+use App\Category;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,11 @@ class AppServiceProvider extends ServiceProvider
         Region::creating(function ($region) {
             $prefix = $region->parent ? $region->parent->name . ' ' : '';
             $region->slug = Str::slug($prefix . $region->name);
+        });
+
+        Category::creating(function ($category) {
+            $prefix = $category->parent ? $category->parent->name . ' ' : '';
+            $category->slug = Str::slug($prefix . $category->name);
         });
     }
 }
