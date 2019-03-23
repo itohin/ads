@@ -11,7 +11,17 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', 'HomeController@index');
 Route::get('/user/region/{region}', 'User\RegionController@store')->name('user.region.store');
 
-Auth::routes();
+Route::group(['prefix' => '/{region}'], function () {
+
+    /**
+     * Category
+     */
+    Route::group(['prefix' => '/categories'], function () {
+        Route::get('/', 'Category\CategoryController@index')->name('category.index');
+    });
+});

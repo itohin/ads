@@ -12,6 +12,6 @@ class RegionController extends Controller
     {
         session()->put('region', $region->slug);
 
-        return redirect()->back();
+        return redirect()->route('category.index', [$region]);
     }
 }
