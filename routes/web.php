@@ -12,5 +12,6 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/user/region/{region}', 'User\RegionController@store')->name('user.region.store');
 
 Auth::routes();
