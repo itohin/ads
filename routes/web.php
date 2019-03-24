@@ -23,5 +23,9 @@ Route::group(['prefix' => '/{region}'], function () {
      */
     Route::group(['prefix' => '/categories'], function () {
         Route::get('/', 'Category\CategoryController@index')->name('category.index');
+
+        Route::group(['prefix' => '/{category}'], function () {
+            Route::get('/listings', 'Listing\ListingController@index')->name('listings.index');
+        });
     });
 });

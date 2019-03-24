@@ -25,7 +25,7 @@ class Listing extends Model
         return $query->where('category_id', $category->id);
     }
 
-    public function scopeFromRegion($query, Region $region)
+    public function scopeInRegion($query, Region $region)
     {
         return $query->whereIn('region_id', array_merge([$region->id], $region->descendants()->pluck('id')->toArray()));
     }
