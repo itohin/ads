@@ -54,4 +54,14 @@ class Listing extends Model
     {
         return $this->belongsTo(Region::class);
     }
+
+    public function favorites()
+    {
+        return $this->morphToMany(User::class, 'favoritable');
+    }
+
+    public function favoritedBy(User $user)
+    {
+        return $this->favorites->contains($user);
+    }
 }
