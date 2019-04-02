@@ -28,4 +28,9 @@ Route::group(['prefix' => '/{region}'], function () {
             Route::get('/listings', 'Listing\ListingController@index')->name('listings.index');
         });
     });
+
+    /**
+     * Listing
+     */
+    Route::get('/{listing}', 'Listing\ListingController@show')->name('listings.show');
 });

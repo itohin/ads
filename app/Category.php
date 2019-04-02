@@ -15,4 +15,16 @@ class Category extends Model
     {
         return 'slug';
     }
+
+    public function scopeWithListingsInRegion($query, Region $region)
+    {
+        return $query->with(['listings' => function ($query) use ($region) {
+            $query->isLive()->inRegion($region);
+        }]);
+    }
+
+    public function listings()
+    {
+        return $this->hasMany(Listing::class);
+    }
 }

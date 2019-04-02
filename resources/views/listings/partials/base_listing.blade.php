@@ -1,7 +1,7 @@
 <div class="media">
     <div class="media-body">
         <h5>
-            <strong><a href="">{{ $listing->title }}</a></strong>
+            <strong><a href="{{ route('listings.show', [$region, $listing]) }}">{{ $listing->title }}</a></strong>
             @if ($region->children->count())
                 in {{ $listing->region->name }}
             @endif
