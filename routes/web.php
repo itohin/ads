@@ -32,5 +32,9 @@ Route::group(['prefix' => '/{region}'], function () {
     /**
      * Listing
      */
+    Route::group(['prefix' => '/listing'], function () {
+        Route::post('/{listing}/favorites', 'Listing\ListingFavoriteController@store')->name('listing.favorites.store');
+    });
+
     Route::get('/{listing}', 'Listing\ListingController@show')->name('listings.show');
 });
