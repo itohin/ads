@@ -33,6 +33,7 @@ Route::group(['prefix' => '/{region}'], function () {
      * Listing
      */
     Route::group(['prefix' => '/listing'], function () {
+        Route::get('/favorites', 'Listing\ListingFavoriteController@index')->name('listing.favorites.index');
         Route::post('/{listing}/favorites', 'Listing\ListingFavoriteController@store')->name('listing.favorites.store');
     });
 
