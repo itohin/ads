@@ -39,7 +39,7 @@ Route::group(['prefix' => '/{region}'], function () {
 
         Route::get('/viewed', 'Listing\ListingViewedController@index')->name('listing.viewed.index');
 
-        Route::post('/contact', 'Listing\ListingContactController@store')->name('listing.contact.store');
+        Route::post('/{listing}/contact', 'Listing\ListingContactController@store')->name('listing.contact.store');
     });
 
     Route::get('/{listing}', 'Listing\ListingController@show')->name('listings.show');
