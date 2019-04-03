@@ -24,14 +24,14 @@ class ListingFavoriteController extends Controller
     {
         $request->user()->favoriteListings()->syncWithoutDetaching([$listing->id]);
 
-        return back();
+        return back()->withSuccess('Listing added to a favorites.');
     }
 
     public function destroy(Request $request, Region $region, Listing $listing)
     {
         $request->user()->favoriteListings()->detach($listing);
 
-        return back();
+        return back()->withSuccess('Listing removed from favorites.');
     }
 
 }

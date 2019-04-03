@@ -1,14 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        @if ($listings->count())
-            @each ('listings.partials.listing_favorite', $listings,  'listing')
+    @if ($listings->count())
+        @each ('listings.partials.listing_favorite', $listings,  'listing')
 
-            {{ $listings->links() }}
+        {{ $listings->links() }}
 
-        @else
-            <p>No favorite listings.</p>
-        @endif
-    </div>
+    @else
+        <p>No favorite listings.</p>
+    @endif
 @endsection
