@@ -46,6 +46,6 @@ class User extends Authenticatable
 
     public function viewedListings()
     {
-        return $this->belongsTomany(Listing::class, 'user_listing_views')->withTimestamps();
+        return $this->belongsTomany(Listing::class, 'user_listing_views')->withTimestamps()->withPivot(['count', 'id']);
     }
 }
