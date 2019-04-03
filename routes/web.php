@@ -35,6 +35,7 @@ Route::group(['prefix' => '/{region}'], function () {
     Route::group(['prefix' => '/listing'], function () {
         Route::get('/favorites', 'Listing\ListingFavoriteController@index')->name('listing.favorites.index');
         Route::post('/{listing}/favorites', 'Listing\ListingFavoriteController@store')->name('listing.favorites.store');
+        Route::delete('/{listing}/favorites', 'Listing\ListingFavoriteController@destroy')->name('listing.favorites.destroy');
     });
 
     Route::get('/{listing}', 'Listing\ListingController@show')->name('listings.show');
