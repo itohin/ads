@@ -69,4 +69,9 @@ class Listing extends Model
     {
         return $this->belongsTomany(User::class, 'user_listing_views')->withTimestamps()->withPivot(['count']);
     }
+
+    public function views()
+    {
+        return $this->viewedUsers()->sum('count');
+    }
 }

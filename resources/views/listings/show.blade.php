@@ -38,7 +38,7 @@
                     {!! nl2br(e($listing->body)) !!}
                 </div>
                 <div class="card-footer text-muted">
-                    Viewed x times
+                    Viewed {{ $listing->views() }} times
                 </div>
             </div>
             <div class="card mt-4">
