@@ -11,6 +11,6 @@
             <li class="list-inline-item"><time>{{ $listing->created_at->diffForHumans() }}</time></li>
             <li class="list-inline-item">{{ $listing->user->name }}</li>
         </ul>
-        {{ $links }}
+        {{ isset($links) ? $links : '' }}
     </div>
 </div>
