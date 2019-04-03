@@ -38,6 +38,8 @@ Route::group(['prefix' => '/{region}'], function () {
         Route::delete('/{listing}/favorites', 'Listing\ListingFavoriteController@destroy')->name('listing.favorites.destroy');
 
         Route::get('/viewed', 'Listing\ListingViewedController@index')->name('listing.viewed.index');
+
+        Route::post('/contact', 'Listing\ListingContactController@store')->name('listing.contact.store');
     });
 
     Route::get('/{listing}', 'Listing\ListingController@show')->name('listings.show');
