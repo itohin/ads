@@ -6,11 +6,22 @@
                 @foreach ($country->children as $state)
                     <optgroup label="{{ $state->name }}">
                         @foreach ($state->children as $child)
-                            <option value="{{ $child->id }}">{{ $child->name }}</option>
+                            @if (
+                                isset($listing) && $listing->region->id == $child->id ||
+                                !isset($listing) && $region->id == $child->id && !old('region_id') ||
+                                old('region_id') == $child->id
+                            )
+                                <option value="{{ $child->id }}" selected="selected">{{ $child->name }}</option>
+                            @else
+                                <option value="{{ $child->id }}">{{ $child->name }}</option>
+                            @endif
                         @endforeach
                     </optgroup>
                 @endforeach
             </optgroup>
         @endforeach
     </select>
+    @if ($errors->has('region_id'))
+        <span class="form-text">{{ $errors->first('region_id') }}</span>
+    @endif
 </div>

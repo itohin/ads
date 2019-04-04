@@ -29,11 +29,16 @@ class ComposerServiceProvider extends ServiceProvider
     {
         View::composer('*', RegionComposer::class);
 
-        View::composer(['listings.partials.forms.regions', 'listings.partials.forms.categories'], function ($view) {
+        View::composer(['listings.partials.forms.categories'], function ($view) {
             $categories = Category::get()->toTree();
+
+            $view->with(compact('categories'));
+        });
+
+        View::composer(['listings.partials.forms.regions'], function ($view) {
             $regions = Region::get()->toTree();
 
-            $view->with(compact('categories', 'regions'));
+            $view->with(compact('regions'));
         });
     }
 }

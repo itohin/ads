@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Listing;
 
 use App\Category;
+use App\Http\Requests\StoreListingFormRequest;
 use App\Jobs\UserViewedListing;
 use App\Listing;
 use App\Region;
@@ -36,7 +37,7 @@ class ListingController extends Controller
         return view('listings.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreListingFormRequest $request)
     {
         $listing = new Listing;
 
