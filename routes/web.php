@@ -44,6 +44,9 @@ Route::group(['prefix' => '/{region}'], function () {
         Route::group(['middleware' => 'auth'], function () {
             Route::get('/create', 'Listing\ListingController@create')->name('listing.create');
             Route::post('/', 'Listing\ListingController@store')->name('listing.store');
+
+            Route::get('/{listing}/edit', 'Listing\ListingController@edit')->name('listing.edit');
+            Route::patch('/{listing}', 'Listing\ListingController@update')->name('listing.update');
         });
     });
 

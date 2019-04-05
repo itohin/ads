@@ -65,6 +65,11 @@ class Listing extends Model
         return $this->favorites->contains($user);
     }
 
+    public function ownedByUser(User $user)
+    {
+        return $this->user->id == $user->id;
+    }
+
     public function viewedUsers()
     {
         return $this->belongsTomany(User::class, 'user_listing_views')->withTimestamps()->withPivot(['count']);

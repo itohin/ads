@@ -1,6 +1,6 @@
 <div class="form-group">
     <label for="category" class="control-label">Category</label>
-    <select name="category_id" id="category" class="form-control"{{ isset($listing) && $listing->isLive() ? ' disabled="disabled"' : '' }}>
+    <select name="category_id" id="category" class="form-control"{{ isset($listing) && $listing->live() ? ' disabled="disabled"' : '' }}>
         @foreach ($categories as $category)
             <optgroup label="{{ $category->name }}">
                 @foreach ($category->children as $child)
