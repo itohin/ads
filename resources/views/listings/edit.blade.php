@@ -31,8 +31,12 @@
                                 <span class="form-text">{{ $errors->first('body') }}</span>
                             @endif
                         </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Save</button>
+                        <div class="form-group clearfix ">
+                            <button type="submit" class="btn btn-secondary">Save</button>
+
+                            @if (!$listing->live())
+                                <button type="submit" name="payment" value="true" class="btn btn-primary float-right">Continue to payment</button>
+                            @endif
                         </div>
                         @if ($listing->live())
                             <input type="hidden" name="category_id" value="{{ $listing->category_id }}">

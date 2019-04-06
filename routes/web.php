@@ -41,6 +41,9 @@ Route::group(['prefix' => '/{region}'], function () {
 
         Route::post('/{listing}/contact', 'Listing\ListingContactController@store')->name('listing.contact.store');
 
+        Route::get('/{listing}/payment', 'Listing\ListingPaymentController@show')->name('listing.payment.show');
+        Route::post('/{listing}/payment', 'Listing\ListingPaymentController@show')->name('listing.payment.store');
+
         Route::group(['middleware' => 'auth'], function () {
             Route::get('/create', 'Listing\ListingController@create')->name('listing.create');
             Route::post('/', 'Listing\ListingController@store')->name('listing.store');
