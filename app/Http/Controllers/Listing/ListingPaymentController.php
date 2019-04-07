@@ -30,8 +30,10 @@ class ListingPaymentController extends Controller
     {
         $this->authorize('touch', $listing);
 
-        if ($listing->live()) {
-            return back();
-        }
+//        if ($listing->live()) {
+//            return back();
+//        }
+
+        dd($request->payment_method_nonce);
     }
 }

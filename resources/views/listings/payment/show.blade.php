@@ -9,7 +9,7 @@
 
                     <div class="card-body">
                         @if ($listing->cost() == 0)
-                            <form action="#" method="post">
+                            <form action="{{ route('listing.store', [$region, $listing]) }}" method="post">
                                 {{ csrf_field() }}
                                 {{ method_field('PATCH') }}
 
@@ -19,6 +19,7 @@
                             </form>
                         @else
                             <p>Total cost: ${{ number_format($listing->cost(), 2) }}</p>
+                            <payment-form></payment-form>
                         @endif
                     </div>
                 </div>

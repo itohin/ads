@@ -14,7 +14,10 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
+
 Route::get('/user/region/{region}', 'User\RegionController@store')->name('user.region.store');
+
+Route::get('/braintree/token', 'BraintreeController@token');
 
 Route::group(['prefix' => '/{region}'], function () {
 
